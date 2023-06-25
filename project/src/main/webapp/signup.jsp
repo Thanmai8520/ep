@@ -67,6 +67,7 @@
       </script>
    </head>
    <body>
+   <jsp:include page="navbar.jsp" />
       <div class="wrapper">
          <div class="title">
             Signup Form

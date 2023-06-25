@@ -7,9 +7,13 @@
       <meta charset="utf-8">
       <title>Login Form Design | CodeLab</title>
       <link rel="stylesheet" href="style.css">
+      
+     
+      
    </head>
    <body>
-      <div class="wrapper">
+   <jsp:include page="navbar.jsp" />
+   <div class="wrapper">
          <div class="title">
             Login Form
          </div>

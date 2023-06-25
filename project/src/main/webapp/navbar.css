@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Change the font family as desired */
+}
+
+.navbar {
+  background-color: #6e0dbe;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  height: 80px; /* Increase the height as desired */
+}
+
+.logo {
+  font-size: 2rem; /* Increase the font size as desired */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 10px 16px; /* Adjust padding as desired */
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-links li a:before,
+.nav-links li a:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li a:after {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li a:hover:before,
+.nav-links li a:hover:after {
+  width: 100%;
+}
+
+.nav-links li a span {
+  position: relative;
+}
+
+.nav-links li a span:before,
+.nav-links li a span:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a span:before {
+  top: -4px;
+  left: 0;
+}
+
+.nav-links li a span:after {
+  bottom: -4px;
+  right: 0;
+}
+
+.nav-links li a:hover span:before {
+  top: 0;
+  left: -6px;
+  transform: rotate(-45deg);
+}
+
+.nav-links li a:hover span:after {
+  bottom: 0;
+  right: -6px;
+  transform: rotate(45deg);
+}
