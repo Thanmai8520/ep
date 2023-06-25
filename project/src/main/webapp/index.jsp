@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -13,13 +13,13 @@
          <div class="title">
             Login Form
          </div>
-         <form action="#">
+         <form action="LoginService" method="post">
             <div class="field">
-               <input type="text" required>
+               <input type="text" name="uname" required>
                <label>UserName</label>
             </div>
             <div class="field">
-               <input type="password" required>
+               <input type="password" name="pass" required>
                <label>Password</label>
             </div>
             <div class="content">

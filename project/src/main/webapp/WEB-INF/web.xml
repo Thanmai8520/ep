@@ -4,4 +4,26 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-</web-app>
+  <servlet>
+  	<servlet-name>LoginService</servlet-name>
+  	<display-name>LoginService</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.LoginService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterService</servlet-name>
+  	<display-name>RegisterService</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.RegisterService</servlet-class>
+ </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginService</servlet-name>
+  	<url-pattern>/LoginService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterService</servlet-name>
+  	<url-pattern>/RegisterService</url-pattern>
+  </servlet-mapping>
+  
+  
+ </web-app>

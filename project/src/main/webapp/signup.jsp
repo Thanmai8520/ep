@@ -3,10 +3,12 @@
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Signup Form Design | CodeLab</title>
+      <title>Signup</title>
       <link rel="stylesheet" href="signup.css">
       <script>
          function validateSignupForm() {
+        	 var accno = document.getElementById("accno").value;
+        	 var acctype = document.getElementById("acctype").value;
             var fullName = document.getElementById("fullName").value;
             var username = document.getElementById("username").value;
             var email = document.getElementById("email").value;
@@ -14,6 +16,17 @@
             var confirmPassword = document.getElementById("confirmPassword").value;
             var agreeCheckbox = document.getElementById("agree");
 
+
+            if (accno.trim() === "") {
+                alert("Please enter your Account number.");
+                return false;
+             }
+
+            if (acctype.trim() === "") {
+                alert("Please enter your Account type.");
+                return false;
+             }
+            
             if (fullName.trim() === "") {
                alert("Please enter your full name.");
                return false;
@@ -58,21 +71,29 @@
          <div class="title">
             Signup Form
          </div>
-         <form action="#" onsubmit="return validateSignupForm()">
+         <form action="RegisterService" method="get">
+                     <div class="field">
+               <input type="text" id="accno" name="accno" required>
+               <label>Account Number</label>
+            </div>
+                        <div class="field">
+               <input type="text" id="acctype" name="acctype" required>
+               <label>Account Type</label>
+            </div>
             <div class="field">
-               <input type="text" id="fullName" required>
+               <input type="text" id="fullName" name="fullname" required>
                <label>Full Name</label>
             </div>
             <div class="field">
-               <input type="text" id="username" required>
+               <input type="text" id="username" name="username" required>
                <label>Username</label>
             </div>
             <div class="field">
-               <input type="text" id="email" required>
+               <input type="text" id="email" name="email" required>
                <label>Email Address</label>
             </div>
             <div class="field">
-               <input type="password" id="password" required>
+               <input type="password" id="password" name="password"  required>
                <label>Password</label>
             </div>
             <div class="field">
