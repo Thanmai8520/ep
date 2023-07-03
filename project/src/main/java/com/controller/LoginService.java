@@ -55,7 +55,8 @@ public class LoginService extends HttpServlet {
     			userName.setMaxAge(30*60);
     			response.addCookie(userName);
                 // User exists, redirect to a success page
-                response.sendRedirect("ui.jsp");
+    			  RequestDispatcher dispatcher = request.getRequestDispatcher("ui");
+    			    dispatcher.forward(request, response);
             } else {
                 // User does not exist, redirect to an error page
                 response.sendRedirect("error.jsp");

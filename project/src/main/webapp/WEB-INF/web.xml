@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>com.controller.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ui</servlet-name>
+  	<display-name>ui</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.ui</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -33,6 +39,10 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ui</servlet-name>
+  	<url-pattern>/ui</url-pattern>
   </servlet-mapping>
   
   

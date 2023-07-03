@@ -34,15 +34,15 @@ if(session.getAttribute("username") == null){
                 <tbody>
                     <tr>
                         <td>Savings Account</td>
-                        <td>INR.10,000</td>
+                        <td>INR. <%= request.getAttribute("savings") %></td>
                     </tr>
                     <tr>
                         <td>Current Account</td>
-                        <td>INR.5,000</td>
+                        <td>INR. <%= request.getAttribute("current") %></td>
                     </tr>
                     <tr>
                         <td>Fixed Deposit</td>
-                        <td>INR.20,000</td>
+                        <td>INR. <%= request.getAttribute("fd") %></td>
                     </tr>
                 </tbody>
             </table>
