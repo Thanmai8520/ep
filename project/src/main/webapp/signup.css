@@ -17,7 +17,7 @@ body {
 }
 
 ::selection {
-  background: #4158d0;
+  background: rgb(139, 68, 204);
   color: #fff;
 }
 
@@ -86,7 +86,7 @@ form .field input:focus ~ label,
 form .field input:valid ~ label {
   top: 0%;
   font-size: 16px;
-  color: #4158d0;
+  color: rgb(128, 128, 255);
   background: #fff;
   transform: translateY(-50%);
 }

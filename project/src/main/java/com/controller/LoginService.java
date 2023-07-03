@@ -1,4 +1,4 @@
-package com.controller;
+  package com.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -45,7 +45,7 @@ public class LoginService extends HttpServlet {
             // Check if the user exists
             if (rs.next()) {
                 // User exists, redirect to a success page
-                response.sendRedirect("success.jsp");
+                response.sendRedirect("ui.jsp");
             } else {
                 // User does not exist, redirect to an error page
                 response.sendRedirect("error.jsp");

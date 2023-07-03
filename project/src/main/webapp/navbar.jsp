@@ -6,14 +6,17 @@
   <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
+<header>
   <nav class="navbar">
-    <div class="logo">
-      CodeLab
-    </div>
+     <a class="navbar-logo" href="#">
+                <img src="logo.jpeg" alt="UTM bank">
+                
+            </a>
     <ul class="nav-links">
       <li><a href="index.jsp">Login</a></li>
       <li><a href="signup.jsp">Signup</a></li>
     </ul>
   </nav>
+  </header>
 </body>
 </html>
