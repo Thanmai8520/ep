@@ -12,7 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.Cookie;
 @WebServlet("/LoginService")
 public class LoginService extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -20,7 +22,7 @@ public class LoginService extends HttpServlet {
     // Database connection details
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cse";
     private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "Thanmaikora@2003";
+    private static final String JDBC_PASSWORD = "uday2acc";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("uname");
@@ -44,6 +46,13 @@ public class LoginService extends HttpServlet {
 
             // Check if the user exists
             if (rs.next()) {
+            	HttpSession session = request.getSession();
+    			session.setAttribute("username",username);
+    			//setting session to expiry in 30 mins
+    			session.setMaxInactiveInterval(30*60);
+    			Cookie userName = new Cookie("username", username);
+    			userName.setMaxAge(30*60);
+    			response.addCookie(userName);
                 // User exists, redirect to a success page
                 response.sendRedirect("ui.jsp");
             } else {

@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.controller.RegisterService</servlet-class>
  </servlet>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.LogoutServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -23,6 +29,10 @@
   <servlet-mapping>
   	<servlet-name>RegisterService</servlet-name>
   	<url-pattern>/RegisterService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
   
   

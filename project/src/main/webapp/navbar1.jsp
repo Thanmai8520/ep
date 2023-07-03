@@ -7,6 +7,20 @@
     </style>
 </head>
 <body>
+<%
+//allow access only if session exists
+String user1 = null;
+user1 = (String) session.getAttribute("username");
+String userName1 = null;
+String sessionID1 = null;
+Cookie[] cookies = request.getCookies();
+if(cookies !=null){
+for(Cookie cookie : cookies){
+	if(cookie.getName().equals("username")) userName1 = cookie.getValue();
+	if(cookie.getName().equals("JSESSIONID")) sessionID1 = cookie.getValue();
+}
+}
+%>
     <header>
         <nav class="navbar">
             <a class="navbar-logo" href="#">
@@ -22,11 +36,24 @@
                 <li><a href="#">Loans</a></li>
             </ul>
             <ul class="right-menu">
-                <li><a href="#">Sample Name</a></li>
-                <li><a href="index.jsp">Logout</a></li>
+                <li><a href="#"><%=userName1 %></a></li>
+                <li><a href="#" onclick="logout()">Logout1</a></li>
             </ul>
-            
         </nav>
     </header>
+
+    <script>
+        function logout() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "LogoutServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    window.location.href = "index.jsp";
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
