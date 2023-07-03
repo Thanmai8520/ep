@@ -11,6 +11,7 @@
 //allow access only if session exists
 String user1 = null;
 user1 = (String) session.getAttribute("username");
+String fullname=(String)session.getAttribute("fullname");
 String userName1 = null;
 String sessionID1 = null;
 Cookie[] cookies = request.getCookies();
@@ -20,6 +21,7 @@ for(Cookie cookie : cookies){
 	if(cookie.getName().equals("JSESSIONID")) sessionID1 = cookie.getValue();
 }
 }
+  
 %>
     <header>
         <nav class="navbar">
@@ -36,7 +38,7 @@ for(Cookie cookie : cookies){
                 <li><a href="#">Loans</a></li>
             </ul>
             <ul class="right-menu">
-                <li><a href="#"><%=userName1 %></a></li>
+                <li><a href="#"><%=fullname %></a></li>
                 <li><a href="#" onclick="logout()">Logout1</a></li>
             </ul>
         </nav>
