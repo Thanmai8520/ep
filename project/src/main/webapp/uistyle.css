@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+   /* background-color: #f2f2f2;*/
+     background-image: url("../images/mybanking.jpg");
 }
 
 .container {
@@ -24,7 +25,8 @@ header img {
 .financial-summary {
     margin-top: 20px;
     padding: 20px;
-    background-color: #f5effd;
+   /* background-image: url("my banking.jpg");*/
+   /* background-color: #f5effd;*/
     border-radius: 5px;
     border: 2px solid #6b52ae;
 }
@@ -64,6 +66,6 @@ tbody tr:nth-child(even) {
 footer {
     background-color: #6b52ae;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }

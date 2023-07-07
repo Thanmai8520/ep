@@ -22,6 +22,7 @@
 }
 
 .navbar ul {
+	font-family: "Times New Roman", Times, serif;
     list-style-type: none;
     display: flex;
     align-items: center;
@@ -34,6 +35,7 @@
 }
 
 .navbar ul li a {
+	font-family: "Times New Roman", Times, serif;
     color: #fff;
     text-decoration: none;
     padding: 5px 10px;
@@ -41,6 +43,7 @@
 }
 
 .navbar ul li a:hover {
+	font-family: "Times New Roman", Times, serif;
     background-color: #fff;
     color: #6b52ae;
 }
@@ -61,6 +64,7 @@
 
 
 body {
+	font-family: "Times New Roman", Times, serif;a are
     margin: 0;
     padding: 0;
 }

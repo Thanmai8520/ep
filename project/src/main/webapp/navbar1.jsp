@@ -39,7 +39,7 @@ for(Cookie cookie : cookies){
             </ul>
             <ul class="right-menu">
                 <li><a href="#"><%=fullname %></a></li>
-                <li><a href="#" onclick="logout()">Logout1</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
