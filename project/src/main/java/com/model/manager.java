@@ -9,7 +9,7 @@ public class manager {
 	String url = "jdbc:mysql://localhost:3306/cse";
 
 	String un = "root";
-	String pwd = "Thanmaikora@2003";
+	String pwd = "uday2acc";
 	
 	Connection con =  null;
 	PreparedStatement ps = null;

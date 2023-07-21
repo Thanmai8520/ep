@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="uistyle.css">
     <%@ include file="navbar1.jsp" %>
 </head>
-<body>
+
     <%
 //allow access only if session exists
 String user = null;

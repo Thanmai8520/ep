@@ -22,7 +22,7 @@ public class LoginService extends HttpServlet {
     // Database connection details
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cse";
     private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "Thanmaikora@2003";
+    private static final String JDBC_PASSWORD = "uday2acc";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("uname");
