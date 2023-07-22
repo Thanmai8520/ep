@@ -1,0 +1,21 @@
+/* Replace the styles with your desired purple shades */
+body {
+    background-color: #f2e6ff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #9933ff;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #b280ff;
+    color: white;
+}
