@@ -48,7 +48,13 @@ for(Cookie cookie : cookies){
         <!-- Add any form data if needed -->
         <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
     </form></li>
-                <li><a href="#">Cards</a></li>
+                <li>
+    <a href="#" onclick="postToServletcards()">Cards</a>
+    <form id="fundsFormcards" action="cards" method="post" style="display: none;">
+        <!-- Add any form data if needed -->
+        <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
+    </form>
+</li>
                 <li><a href="#">Loans</a></li>
             </ul>
             <ul class="right-menu">
@@ -92,6 +98,10 @@ for(Cookie cookie : cookies){
         function postToServletprofile() {
             // Submit the form to initiate the POST request
             document.getElementById("fundsFormprofile").submit();
+        }
+        function postToServletcards() {
+            // Submit the form to initiate the POST request
+            document.getElementById("fundsFormcards").submit();
         }
     </script>
 </body>

@@ -5,8 +5,17 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <%@ include file="navbar1.jsp" %>
 </head>
 <body>
+<%
+//allow access only if session exists
+String user = null;
+if(session.getAttribute("username") == null){
+	response.sendRedirect("index.jsp");
+}
+
+%>
 <style>
  /* Shoutout to Maite Rosalie for the gold svg gradient which can be seen here below. */
 
@@ -15,19 +24,21 @@
 html {
   background: #fbfafb;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  
 }
 
 .Wrap {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5%; /* Set the desired top margin for both cards here */
 }
 
 .Base {
   background: #ccc;
   height: 200px; /* Increased height for the card container */
   width: 400px;
+  
   border-radius: 15px;
   margin: 0 115px; /* Added margin to separate the cards */
   position: relative; /* Added to make position: absolute work */
@@ -98,7 +109,7 @@ svg {
   color: rgba(255, 255, 255, 0.9);
   white-space: nowrap; /* Added to keep the number in one line */
 }
-
+/*
 ul {
   padding: 20;
 }
@@ -109,7 +120,7 @@ ul li {
   margin: 0px 10px;
   font-size: 2.2em;
 }
-
+*/
 #first-li {
   margin-left: 0;
 }
@@ -201,7 +212,7 @@ ul li {
            <p>02/20</p>
          </div>
          <div class='Name'>
-           <h3>Kora Thanmai</h3>
+           <h3><%= request.getAttribute("fullname") %></h3>
          </div>
          
    <!--       Visa Logo SVG -->
@@ -326,7 +337,7 @@ ul li {
             <p>02/20</p>
           </div>
           <div class='Name'>
-            <h3>Kora Thanmai</h3>
+            <h3><%= request.getAttribute("fullname") %></h3>
           </div>
           
     <!--       Visa Logo SVG -->

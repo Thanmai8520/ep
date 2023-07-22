@@ -64,6 +64,12 @@
   	<description></description>
   	<servlet-class>com.controller.profile</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>cards</servlet-name>
+  	<display-name>cards</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.cards</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -103,6 +109,10 @@
   <servlet-mapping>
   	<servlet-name>profile</servlet-name>
   	<url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>cards</servlet-name>
+  	<url-pattern>/cards</url-pattern>
   </servlet-mapping>
   
   
