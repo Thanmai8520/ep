@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TransactionServlet
  */
 public class TransactionServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	        // Define variables
@@ -34,7 +35,7 @@ public class TransactionServlet extends HttpServlet {
 	            conn = DriverManager.getConnection(url, user, password);
 
 	            // Execute the SQL query
-	            String sql = "SELECT * FROM transaction_history WHERE account = 1234";
+	            String sql = "SELECT * FROM transaction_history1 WHERE account = 1234";
 	            stmt = conn.createStatement();
 	            rs = stmt.executeQuery(sql);
 
@@ -44,7 +45,7 @@ public class TransactionServlet extends HttpServlet {
 	            // Process the result set and store data in the list
 	            while (rs.next()) {
 	                Transaction transaction = new Transaction();
-	                transaction.setTransaction_id(rs.getInt("transaction_id"));
+	                transaction.setTransaction_id(rs.getString("transaction_id"));
 	                transaction.setAccount(rs.getInt("account"));
 	                transaction.setTransaction_date(rs.getTimestamp("transaction_date"));
 	                transaction.setTransaction_type(rs.getString("transaction_type"));

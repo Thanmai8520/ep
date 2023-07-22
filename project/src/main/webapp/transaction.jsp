@@ -4,7 +4,30 @@
     <title>Transaction Details</title>
     <%@ include file="navbar1.jsp" %>
 </head>
+
 <body>
+<style type="text/css">
+/* Replace the styles with your desired purple shades */
+body {
+    background-color: #f2e6ff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #9933ff;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #b280ff;
+    color: white;
+}</style>
     <h1>Transaction Details for Account 1234</h1>
     <table border="1">
         <tr>
@@ -27,6 +50,7 @@
                     <td><%= transaction.getAccount() %></td>
                     <td><%= transaction.getTransaction_date() %></td>
                     <td><%= transaction.getTransaction_type() %></td>
+                    <td><%= transaction.getAmount() %></td>
                    <td><%= transaction.getReceiver() %></td>
                     
                     <!-- Add other table data cells for additional fields if needed -->

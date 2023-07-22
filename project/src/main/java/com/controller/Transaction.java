@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Transaction {
 
     
-    private int transaction_id;
+    private String transaction_id;
 	private int account;
 	private Timestamp transaction_date;
 	private String transaction_type;
@@ -15,11 +15,11 @@ public class Transaction {
     public Transaction() {
     }
 
-	public int getTransaction_id() {
+	public String getTransaction_id() {
 		return transaction_id;
 	}
 
-	public void setTransaction_id(int transaction_id) {
+	public void setTransaction_id(String transaction_id) {
 		this.transaction_id = transaction_id;
 	}
 
@@ -62,5 +62,6 @@ public class Transaction {
 	public void setReceiver(int receiver) {
 		this.receiver = receiver;
 	}
-    
+
+	
 }
