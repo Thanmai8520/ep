@@ -30,6 +30,14 @@ th {
 }</style>
 <%
 //allow access only if session exists
+String user = null;
+if(session.getAttribute("username") == null){
+	response.sendRedirect("index.jsp");
+}
+
+%>
+<%
+//allow access only if session exists
 String user2 = null;
 user1 = (String) session.getAttribute("username");
 String fullname1=(String)session.getAttribute("fullname");

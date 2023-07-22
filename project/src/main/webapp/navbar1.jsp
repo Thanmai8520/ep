@@ -52,7 +52,14 @@ for(Cookie cookie : cookies){
                 <li><a href="#">Loans</a></li>
             </ul>
             <ul class="right-menu">
-                <li><a href="#"><%=fullname %></a></li>
+                
+                <li>
+    <a href="#" onclick="postToServletprofile()"><%=fullname %></a>
+    <form id="fundsFormprofile" action="profile" method="post" style="display: none;">
+        <!-- Add any form data if needed -->
+        <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
+    </form>
+</li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
@@ -81,6 +88,10 @@ for(Cookie cookie : cookies){
         function postToServletTransaction() {
             // Submit the form to initiate the POST request
             document.getElementById("fundsFormTransaction").submit();
+        }
+        function postToServletprofile() {
+            // Submit the form to initiate the POST request
+            document.getElementById("fundsFormprofile").submit();
         }
     </script>
 </body>

@@ -58,6 +58,12 @@
   	<description></description>
   	<servlet-class>com.controller.TransactionServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>profile</servlet-name>
+  	<display-name>profile</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.profile</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -93,6 +99,10 @@
   <servlet-mapping>
   	<servlet-name>TransactionServlet</servlet-name>
   	<url-pattern>/TransactionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>profile</servlet-name>
+  	<url-pattern>/profile</url-pattern>
   </servlet-mapping>
   
   
