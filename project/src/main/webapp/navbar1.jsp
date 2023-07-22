@@ -32,7 +32,7 @@ for(Cookie cookie : cookies){
                 <li>
                     <a href="#">Accounts</a>
                 </li>
-                <li><a href="#">Funds Transfer</a></li>
+                <li><a href="funds.jsp">Funds Transfer</a></li>
                 <li><a href="#">Transactions</a></li>
                 <li><a href="#">Cards</a></li>
                 <li><a href="#">Loans</a></li>
