@@ -28,6 +28,36 @@
   	<description></description>
   	<servlet-class>com.controller.ui</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>FundsServlet</servlet-name>
+  	<display-name>FundsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.FundsServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddfundsServlet</servlet-name>
+  	<display-name>AddfundsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.AddfundsServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WithdrawServlet</servlet-name>
+  	<display-name>WithdrawServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.WithdrawServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TransferfundsServlet</servlet-name>
+  	<display-name>TransferfundsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.TransferfundsServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TransactionServlet</servlet-name>
+  	<display-name>TransactionServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.TransactionServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginService</servlet-name>
   	<url-pattern>/LoginService</url-pattern>
@@ -43,6 +73,26 @@
   <servlet-mapping>
   	<servlet-name>ui</servlet-name>
   	<url-pattern>/ui</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FundsServlet</servlet-name>
+  	<url-pattern>/FundsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddfundsServlet</servlet-name>
+  	<url-pattern>/AddfundsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WithdrawServlet</servlet-name>
+  	<url-pattern>/WithdrawServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TransferfundsServlet</servlet-name>
+  	<url-pattern>/TransferfundsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TransactionServlet</servlet-name>
+  	<url-pattern>/TransactionServlet</url-pattern>
   </servlet-mapping>
   
   

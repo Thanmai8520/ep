@@ -30,10 +30,24 @@ for(Cookie cookie : cookies){
             </a>
             <ul class="left-menu">
                 <li>
-                    <a href="#">Accounts</a>
+                    <a href="#" onclick="postToServletAccount()">Accounts</a>
+    <form id="fundsFormAccount" action="ui" method="post" style="display: none;">
+        <!-- Add any form data if needed -->
+        <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
+    </form>
                 </li>
-                <li><a href="funds.jsp">Funds Transfer</a></li>
-                <li><a href="#">Transactions</a></li>
+                <li>
+    <a href="#" onclick="postToServlet()">Funds Transfer</a>
+    <form id="fundsForm" action="FundsServlet" method="post" style="display: none;">
+        <!-- Add any form data if needed -->
+        <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
+    </form>
+</li>
+                <li><a href="#" onclick="postToServletTransaction()">Transactions</a>
+    <form id="fundsFormTransaction" action="TransactionServlet" method="post" style="display: none;">
+        <!-- Add any form data if needed -->
+        <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
+    </form></li>
                 <li><a href="#">Cards</a></li>
                 <li><a href="#">Loans</a></li>
             </ul>
@@ -55,6 +69,18 @@ for(Cookie cookie : cookies){
                 }
             };
             xhr.send();
+        }
+        function postToServlet() {
+            // Submit the form to initiate the POST request
+            document.getElementById("fundsForm").submit();
+        }
+        function postToServletAccount() {
+            // Submit the form to initiate the POST request
+            document.getElementById("fundsFormAccount").submit();
+        }
+        function postToServletTransaction() {
+            // Submit the form to initiate the POST request
+            document.getElementById("fundsFormTransaction").submit();
         }
     </script>
 </body>

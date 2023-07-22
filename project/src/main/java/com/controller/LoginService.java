@@ -49,6 +49,8 @@ public class LoginService extends HttpServlet {
             	HttpSession session = request.getSession();
     			session.setAttribute("username",username);
     			session.setAttribute("fullname", rs.getString("fullname"));
+    			session.setAttribute("account",rs.getInt("accountnumber"));
+    			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$"+rs.getInt("accountnumber"));
     			//setting session to expiry in 30 mins
     			session.setMaxInactiveInterval(30*60);
     			Cookie userName = new Cookie("username", username);

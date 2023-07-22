@@ -13,7 +13,7 @@ public class manager {
 	
 	Connection con =  null;
 	PreparedStatement ps = null;
-	
+	PreparedStatement ps1 = null;
 	public boolean validate(loginpage l) throws ClassNotFoundException
 	{
         //boolean status = false;
@@ -51,6 +51,13 @@ public class manager {
 		  ps.setString(6, S.getPassword());
 		  
 		  ps.execute();
+		  
+		  ps1=con.prepareStatement("insert into account values(?,?,?,?)");
+		  ps1.setInt(1, Integer.valueOf(S.getAccno()));
+		  ps1.setInt(2, 0);
+		  ps1.setInt(3, 0);
+		  ps1.setInt(4, 0);
+		  ps1.execute();
 		  con.close();
 		  return "Data Inserted Sucessfully...";
 	  }

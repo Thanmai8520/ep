@@ -2,21 +2,11 @@
 <html>
 <head>
     <title>Funds Transfer</title>
-     <%@ include file="navbar1.jsp" %>
-</head>
-
-    <%
-//allow access only if session exists
-String user = null;
-if(session.getAttribute("username") == null){
-	response.sendRedirect("index.jsp");
-}
-
-%>
-   <style>
+    <%@ include file="navbar1.jsp" %>
+    <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            
             background-color: #f9f9f9;
         }
 
@@ -81,31 +71,39 @@ if(session.getAttribute("username") == null){
             margin-top: 30px;
         }
     </style>
+</head>
+<%
+//allow access only if session exists
+String user = null;
+if(session.getAttribute("username") == null){
+  response.sendRedirect("index.jsp");
+}
 
+%>
 <body>
     <h1>Funds Transfer</h1>
-    <div class="balance">Available Balance: $1500.00</div>
+    <div class="balance">Available Balance: <%= request.getAttribute("savings") %></div>
 
     <h2>Add Funds</h2>
-    <form id="addFundsForm">
+    <form id="addFundsForm" action="AddfundsServlet" method="post">
         <label for="addAmount">Amount:</label>
-        <input type="number" id="addAmount" required>
+        <input type="number" id="addAmount" name="amount"required>
         <input type="submit" value="Add Funds">
     </form>
 
     <h2>Withdraw Funds</h2>
-    <form id="withdrawFundsForm">
+    <form id="withdrawFundsForm" action="WithdrawServlet" method="post">
         <label for="withdrawAmount">Amount:</label>
-        <input type="number" id="withdrawAmount" required>
+        <input type="number" id="withdrawAmount" name="amount"required>
         <input type="submit" value="Withdraw Funds">
     </form>
 
     <h2>Send Funds</h2>
-    <form id="sendFundsForm">
+    <form id="sendFundsForm" action="TransferfundsServlet" method="post">
         <label for="receiverAccountNumber">Receiver Account Number:</label>
-        <input type="text" id="receiverAccountNumber" required>
+        <input type="text" id="receiverAccountNumber" name="receiver" required>
         <label for="sendAmount">Amount:</label>
-        <input type="number" id="sendAmount" required>
+        <input type="number" id="sendAmount" name="amount"required>
         <input type="submit" value="Send Funds">
     </form>
 

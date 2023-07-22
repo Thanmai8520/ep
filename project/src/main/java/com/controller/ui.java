@@ -31,6 +31,7 @@ public class ui extends HttpServlet {
 		HttpSession session = request.getSession(false);
         String username=(String) session.getAttribute("username");
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$"+username);
+        int account=(int)session.getAttribute("account");
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -41,9 +42,9 @@ public class ui extends HttpServlet {
             conn = DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
 
             // Prepare the SQL statement to check user credentials
-            String sql = "SELECT * FROM account WHERE username = ?";
+            String sql = "SELECT * FROM account WHERE account = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, username);
+            pstmt.setInt(1, account);
             
             rs = pstmt.executeQuery();
             if (rs.next()) {
