@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import java.util.UUID;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.sql.Types;
 /**
  * Servlet implementation class withdraw
  */
@@ -35,9 +38,14 @@ public class WithdrawServlet extends HttpServlet {
       System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$"+amount);
       Connection conn = null;
       PreparedStatement pstmt = null;
+      PreparedStatement pstmt1 = null;
       ResultSet rs = null;
       
       try {
+    	  Date currentDate = new Date();
+
+          // Step 2: Convert the Date object to a java.sql.Timestamp object
+          Timestamp currentTimestamp = new Timestamp(currentDate.getTime());
           // Create a database connection
           Class.forName("com.mysql.cj.jdbc.Driver");
           conn = DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
@@ -48,8 +56,21 @@ public class WithdrawServlet extends HttpServlet {
           
           pstmt.setInt(1, amount);
           pstmt.setInt(2, account);
-          ;
+          
           int rowsAffected = pstmt.executeUpdate();
+          String transactionId = UUID.randomUUID().toString();
+          String sql1 = "insert into transaction_history1 values(?,?,?,?,?,?)";
+          pstmt1 = conn.prepareStatement(sql1);
+          pstmt1.setString(1, transactionId);
+          pstmt1.setInt(2, account);
+          pstmt1.setTimestamp(3, currentTimestamp);
+          pstmt1.setString(4, "Money WithDrawed");
+          pstmt1.setInt(5, amount);
+          pstmt1.setNull(6, Types.INTEGER);
+          pstmt1.executeUpdate();
+          
+          
+          
           
           System.out.println("Rows affected: " + rowsAffected);
           

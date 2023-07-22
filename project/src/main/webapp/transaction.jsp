@@ -28,7 +28,24 @@ th {
     background-color: #b280ff;
     color: white;
 }</style>
-    <h1>Transaction Details for Account 1234</h1>
+<%
+//allow access only if session exists
+String user2 = null;
+user1 = (String) session.getAttribute("username");
+String fullname1=(String)session.getAttribute("fullname");
+int account=(int)session.getAttribute("account");
+String userName2 = null;
+String sessionID2 = null;
+Cookie[] cookies1 = request.getCookies();
+if(cookies !=null){
+for(Cookie cookie : cookies){
+	if(cookie.getName().equals("username")) userName2 = cookie.getValue();
+	if(cookie.getName().equals("JSESSIONID")) sessionID2 = cookie.getValue();
+}
+}
+  
+%>
+    <h1>Transaction Details for Account <%=account %></h1>
     <table border="1">
         <tr>
             <th>transaction id</th>
