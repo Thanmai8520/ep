@@ -55,7 +55,7 @@ for(Cookie cookie : cookies){
         <!-- For example, <input type="hidden" name="paramName" value="paramValue"> -->
     </form>
 </li>
-                <li><a href="#">Loans</a></li>
+                <li><a href="loans.jsp">Loans</a></li>
             </ul>
             <ul class="right-menu">
                 
