@@ -1,0 +1,24 @@
+Pagination and search filters
+Pagination & Search Design
+	•	Default page size: 20 records per page, shown with numbered pagination
+	•	Simple search: exact case ID or customer number only
+	•	Advanced filters needed for multi-criteria queries (legal type, entity type, status, etc.)
+	•	Filtered results also need pagination (e.g., 100 results split into pages of 20)
+Advanced Filter UI Approach
+	•	Keep the search bar; replace the height filter button with a collapsible “Advanced Filters” section
+	•	Collapsed by default; expands on click
+	•	Toggle arrow: points down when collapsed, up when expanded
+	•	Clear Filter and Apply Filter buttons are fine as-is
+	•	Button colors and styling to be standardized later per blueprint standards
+Blueprint Integration
+	•	Blueprint install done in a separate branch; needs to be applied to replace existing React buttons
+	•	Speaker A to share the branch with Speaker B for collaborative help
+	•	Normal React components to be swapped out for Blueprint equivalents
+Access, Handoff, and Next Steps
+	•	MongoDB access blocked; need to talk to Nishita to get it resolved
+	•	Speaker A to speak to Nishita tomorrow about access and to introduce Speaker B as a collaborator
+	•	Speaker B on leave next week, so handoff coverage may not apply
+	•	Priority: finish and push changes today so Speaker A can incorporate them
+	•	Timesheets confirmed submitted
+	•	Talk to Nishita about MongoDB access and team intro (Speaker A) Get Speaker B’s access approved and flag them as a collaborator for coverage.
+	•	Implement collapsible advanced filter UI and push code (Speaker B) Commit and push today before leave; Speaker A will incorporate and continue.
