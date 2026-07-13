@@ -1,4 +1,45 @@
-Pagination and search filters
+Entity filtering options
+Filter Logic for Sole Traders Search
+	•	Entity type, status, and date range can be combined or used independently
+	•	Supported filter combinations:
+	◦	Entity type only (e.g. sole traders, all statuses)
+	◦	Status only (e.g. passed, referred)
+	◦	Date range only (created on or completed on)
+	◦	Any combination of the above
+	•	Date field selection via dropdown: “Created Date” or “Completed Date”
+	◦	Default: created on, if nothing selected
+	◦	From/to applies to whichever field is chosen
+Date Range Handling
+	•	If only “from date” is provided, treat “to date” as current timestamp (latest)
+	•	If both from and to are the same date, filter to that specific date only
+	•	Backend handles missing “to date” gracefully, no hard requirement on both fields
+JIRA Documentation Approach
+	•	Write all use cases as a table in the frontend JIRA ticket description
+	◦	Enumerate every scenario: entity type only, status only, date range only, combined
+	•	Copy the same table into the API JIRA ticket
+	◦	Add functional explanation: how the API handles each case, endpoint, and parameters
+	•	Document as you implement: update the JIRA ticket side by side with each use case built
+Team and Project Structure
+	•	Sagar: primary owner from the team side
+	•	Nishita: counterpart from the Accelerated team
+	•	Carden: working on Salesforce side, will set up KT sessions on sole traders and Salesforce cases
+	◦	KT sessions to cover end-to-end flow: Salesforce, middleware, and backend
+	◦	May also assign small Salesforce tasks for hands-on experience
+Expectations and Workload Balance
+	•	Office attendance required on Mondays and Tuesdays
+	•	Grad hire expectation: become cross-skilled across Salesforce and AWS
+	•	AWS work likely coming soon; prior CFT/AWS experience noted as an asset
+	•	Balance between Salesforce KT work and core development tasks expected
+Next Steps
+	•	Document all filter use cases as a table in the frontend JIRA ticket Cover all combinations: entity type, status, date range, and combined scenarios.
+	•	Copy use case table into the API JIRA ticket with functional logic Describe how the API handles each case, including endpoint and parameters.
+	•	Implement the date field dropdown in the UI Created Date vs. Completed Date; default to created on if nothing selected.
+	•	Attend Salesforce KT sessions with Carden Sessions will cover sole traders end-to-end: Salesforce, middleware, and backend.
+
+
+
+
+mPagination and search filters
 Pagination & Search Design
 	•	Default page size: 20 records per page, shown with numbered pagination
 	•	Simple search: exact case ID or customer number only
