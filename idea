@@ -1,3 +1,58 @@
+Application handover overview
+Application Architecture Overview
+	•	UI built in React (local), currently using Python API on localhost
+	•	Data sourced from MongoDB: case details, deterministic/non-deterministic checks, AI-generated attributes
+	•	Backend stack: MongoDB + Kafka
+	◦	Kafka triggered when Salesforce publishes to the ingest endpoint
+	◦	Read-only Mongo operations for now; minimal write ops planned
+Migration to Java Spring Boot API
+	•	Python API must be migrated to Java (Spring Boot, Java 21, SDK3)
+	•	Forced by platform constraint: Service Mesh / BCP only supports Spring Boot, not Python
+	•	Java API will replicate all existing endpoints and Mongo connections
+	◦	Need to explore Java-Mongo libraries/SDKs
+	◦	Java classes, models, and mappers required (Duo can assist, but manual work needed)
+	•	Final deployment target: MCA (internal platform), not AWS
+	◦	AWS considered but CISO approval uncertain; no established deployment pattern in Barclays
+UI Sections and Data Logic
+	•	Deterministic section: fuzzy-logic matching across sources (Salesforce, Company House, customer input)
+	◦	Grouped by KYC module; display names enriched via key-value map in the API
+	◦	Color-coded confidence scores; bot icon for AI-generated fields
+	◦	Expanded column for overflow; data source columns mapped dynamically
+	•	Nature of Business: validates declared business activity against multiple sources
+	◦	High-risk keyword assessment; agent-driven (Vishrut, Keshav, Raj)
+	•	Ultimate Beneficiary Owner (UBO): most complex section
+	◦	Calculates direct + indirect shareholding across entity chains
+	◦	Threshold checks: >10% voting rights, >25% ownership
+	◦	Output: shareholder diagram + beneficiary owner list with verification markers
+	◦	Agent team (Vishrut, Keshav, Raj) owns this logic; code is protected
+	•	Trading Address Validation: not yet started
+	◦	Checks include: residential, trading, potential, third-party, Google Street View, co-working spaces
+	◦	Google Street View accuracy is limited; may require manual intervention
+Access and Local Setup
+	•	MongoDB connection config already in .env file; just needs personal credentials swapped in
+	◦	Add .env to .gitignore to avoid checking in credentials
+	◦	One SSL certificate needed: will be shared separately
+	•	UNIX account access still pending
+	◦	IT global team is guiding through the request (amendment type, local application)
+	◦	Approval to be delegated to Sagar while Speaker A is away
+	•	Workaround until Mongo access is granted: comment out Mongo call in service.py, substitute local JSON copy
+Handover and Next Steps
+	•	Speaker A unavailable all of next week; reachable by phone for urgent issues only
+	•	Priority for next week:
+	◦	Get UNIX access sorted
+	◦	Pull latest code and review structure
+	◦	Attend functional calls with Shruti Sabu and Pakumar (ops team, CDD process walkthroughs); no recordings due to PII, so notes and active listening are critical
+	•	Connect with Keshav on 8th floor (Infinity), Monday or Tuesday, arrive by 9:00–9:30 AM
+	◦	Keshav can assist with UI KT, data questions, and task assignment during the gap week
+	•	Salesforce: no changes expected for at least 6 months; focus is on understanding Karthikeyan’s integration layer to reduce SI partner dependency
+	•	Get UNIX access via IT global team Follow amendment request flow; Sagar will cover approvals while Speaker A is away next week.
+	•	Pull latest code and set up local environment Swap in personal MongoDB credentials in `.env`, add `.env` to `.gitignore`, and obtain SSL certificate.
+	•	Connect with Keshav on 8th floor next week Monday or Tuesday, arrive by 9:00–9:30 AM for UI KT and task handover.
+	•	Attend functional CDD walkthrough calls with Shruti Sabu and Pakumar No recordings due to PII; take detailed notes and rely on Copilot summaries as a supplement only.
+
+
+
+
 Entity filtering options
 Filter Logic for Sole Traders Search
 	•	Entity type, status, and date range can be combined or used independently
