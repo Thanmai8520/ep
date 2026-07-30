@@ -1,3 +1,24 @@
+Password rotation and access issues
+Token Authentication Issue
+	•	Token retrieval failing with user ID and password fetched from the safe
+	•	Error returned: username or password missing or invalid
+	•	Password likely expired, as it has been more than six months since last rotation
+Password Rotation Blocker
+	•	Safe access required to rotate the password
+	•	Safe has an option to rotate passwords directly
+	•	The relevant safe is not visible in staging or prod Vala/Sariska CSM environments
+	◦	Unclear if access was removed or never granted
+TR Token Access
+	•	The safe in question was previously used when working on the TR token
+	•	Access requests were raised at that time by another team member
+	•	Plan: check from that team member’s account to verify if the TR token still exists
+Next Steps
+	•	Check TR token existence via the other team member’s CSM account They need a few minutes to authenticate and open CSM before confirming token status.
+	•	Obtain safe access to rotate the expired password Safe is not visible in current staging or prod environments; access may need to be re-requested.
+
+
+
+
 Application handover overview
 Application Architecture Overview
 	•	UI built in React (local), currently using Python API on localhost
