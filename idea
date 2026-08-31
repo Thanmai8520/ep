@@ -1,3 +1,98 @@
+Email and letter validation steps
+Meeting Context
+	•	Walkthrough session on HPE extract validation and comms generation process
+	•	Facilitated by Suresh (Speaker A) for Thanmai and at least one other team member
+	•	Prior run plan walkthrough already done with Thanmai separately
+HPE Extract Validation
+	•	Extract drives pre-population of values in actual letters and emails
+	•	Validate template IDs first: confirm extract is generated for the expected email, letter, or postal form templates
+	•	Use “text to columns” with pipe delimiter to get clean column-based format
+	•	Check count: confirm all test data records (e.g., 20) are present in the extract
+	•	Do not validate all records: randomly pick 5-6 based on specific scenarios
+	◦	If same issue repeats across data, flag with ETL rather than raising per record
+	◦	Buffer data kept per scenario for cross-matching
+Fields and Mapping Sheet Validation
+	•	Mapping sheet lives within the FSD; open with BA or developer
+	•	For letters: validate official name, business name, correspondent address, postcode
+	◦	Cross-check address values against the BW sheet shared with ETL
+	•	Project-specific fields (pre-population):
+	◦	Project specific 3: business name, trading name
+	◦	Project specific 4: expected account activity, last 4 digits of account number
+	◦	This extract (email/letter only): no account number or sort code pre-population
+	◦	Outreach extract: account number and sort code would be pre-populated
+	•	Date logic fields: check why certain fields display as dates; investigate with ETL if unexpected
+	•	Any address or field mismatch: raise with ETL, citing expected outcome from mapping sheet
+Comms Generation and Coordination
+	•	Validate extract first, then coordinate with component teams to generate comms
+	•	Email comms: HPE extract goes to SFMC
+	◦	SFMC provides a zip file; share with SMCT team to trigger emails
+	◦	Verify receipt with Ro and Aisha (email) and Lauren/source UK mobile (SMS)
+	◦	SFMC POC: Nayan Prakasha (looped into chat)
+	•	Letter comms: HPE extract goes to BNE
+	◦	POC: Anthony; contact for content or format issues
+	◦	If letter not visible in C-mode after processing, check with CMOT
+	•	Raise defects:
+	◦	IT-related issues: raise with ETL
+	◦	Content or format issues: raise with HPXT
+Validation Scope and UAT Coordination
+	•	Three comms categories: Day 0, Day 30, Day 80 (same structure for repays)
+	•	UAT team will not validate all comms: share one or two email/letter samples per day category
+	•	Share generated comms in the end-to-end chat for UAT team to begin their validations
+	•	If UAT requests entity-specific comms, share accordingly
+	•	Confluence page (shared by Katie) lists all comms stage by stage: cross-check it is the latest version before starting
+	•	Sample emails shared by Suresh: refer to these, noting POC may vary
+Next Steps
+	•	Cross-check Confluence page is up to date before starting validations Verify with BAS whether the FST on the Confluence comms page reflects the latest update.
+	•	Validate HPE extract against mapping sheet Check template IDs, field pre-population, date logic fields, and address values; raise any issues with ETL citing expected outcomes.
+	•	Coordinate with SFMC (Nayan Prakasha) and BNE (Anthony) for comms generation Share extract once validated; confirm email and letter receipt with Ro, Aisha, and Lauren.
+	•	Share one or two sample comms per day category with UAT team Cover Day 0, Day 30, and Day 80 for both email and letter; post in the end-to-end chat.
+
+
+HPX extract validation process
+Warning and Blocking Journey Overview
+	•	Two outreach channels: postal (physical form) and digital (customer journey)
+	•	Customers who don’t respond to forms fall into the warning and blocking category
+	•	Timeline:
+	◦	Day 0: warning comms sent, no block yet
+	◦	Day 30: accounts and cards blocked
+	◦	Day 80: reminder comms sent, no new blocks
+	•	Unblocking: happens as soon as customer responds, at any stage
+	•	Post-Day 80 non-responders: cases moved to hold or post-closed status
+	•	Blocking scope: business accounts and cards only, not personal accounts
+HPX Extract and Comms Generation
+	•	HPX extract comes from ETL team after reverse run; contains field-value mappings for letters and emails
+	•	Values in the extract are exactly what appear in generated letters and emails
+	•	Validation: check each field has the correct expected value (e.g. business name in the right field)
+	•	Comms types: SMS, email, letter; letter and email are the priority
+	•	Key contacts:
+	◦	Anthony Roche: HPX team, processes HPX extract to generate letters
+	◦	Nayan Prakasha: SFMC/BNE team, handles email and SMS triggering
+	◦	Aishwarya: Endo team, receives test emails for validation
+	•	SMS process: get text file from ETL, share directly with BNE/SFMC team for generation
+	•	Email process: get zip file from HPXT after they process the extract, share with SFMC
+	•	For any process queries: check with Shibangi; for FSD, contact BA
+Run Plan: Repair Journey Steps
+	•	Filter data sheet for repair records before starting
+	•	Case status movement in Salesforce:
+	◦	Set status to NFA Unresolved or QC Fail Repair
+	◦	Manually update marker to KSR in customer system
+	•	ETL extract request:
+	◦	Extract date: date(s) case movements were made in Salesforce
+	◦	Business date: a future date
+	◦	Environment: Salesforce EIT0
+	◦	Run type: delta run (not clean run, since data from Day 0 already exists)
+	•	After ETL reverse run: validate HPX extract, then share with HPXT to generate letters
+	•	Comms to generate per repair stage: Day 0, Day 7, Day 15 (SMS, email, letter)
+	•	Validation: compare generated comms against FSD; raise issues if content mismatches
+	•	Once validated: close test cases
+Next Steps
+	•	Add case status movement reference to the run plan NFA Unresolved and QC Fail Repair statuses plus KSR marker are not currently documented in the run plan.
+	•	Forward SMS and email sample mails with attachments Recipient requested these for reference during comms generation coordination.
+	•	Share mobile number details for SMS delivery validation Unclear which of the three numbers in the data sheet will receive SMS during testing.
+
+
+
+
 Password rotation and access issues
 Token Authentication Issue
 	•	Token retrieval failing with user ID and password fetched from the safe
