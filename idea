@@ -1,3 +1,47 @@
+Contact updates for UAT team
+UAT and E2E Support
+	•	One speaker supporting UAT team with data queries and E2E flow explanations
+	•	UAT contact asked about E2E flows and who ran the last reverse run (morning/blocking)
+	◦	Directed her to Sachin, Gayatri, Utra, or Vishwa
+	◦	Sachin connected with her for the ETL-related query
+Contacts and POCs
+	•	HPX, BNE, and SFMC contacts not yet confirmed
+	◦	Plan to ask Ishwara for guidance
+	◦	Santosh may be a contact for one of the teams (unclear which)
+	•	Suresh: contact for TDL account tables; may have changed role
+	◦	His number to be shared in chat for direct follow-up
+	•	Rohit: to be contacted for POCs across all teams
+	•	CS team: needs to be looped in to manually validate generated files and return responses
+File Sharing and Table Mapping
+	•	Suresh previously shared customer table sheets; some located during the meeting
+	◦	SMS file for SFMC, plus at least one additional sheet
+	•	ETL generates and shares files with downstream teams:
+	◦	SMS file to BNE team
+	◦	HPX file to HPX team
+	◦	Email file to SFMC team
+	•	KT sessions covered 18-20 tables but did not cover blocks journey tables
+	◦	One speaker missed relevant KT sessions; needs to review recordings or connect with Ishwara
+ETL Run Plan and Dates
+	•	Day 30 ETL run not yet started; Day 0 not applicable (no marker, KBL change instead)
+	•	Markers updated in data after process completes (case-based, e.g. KSI2K)
+	•	Target UAT run date: 24th of the month
+	•	Deadline to complete all prep: by the 16th (already delayed by one day)
+	•	Bank holiday on the 26th to be skipped in date planning
+	•	Scope: blocks and warnings only; unblocks not required; repairs handled separately via ASR
+Letter and Email Verification
+	•	Once letters and emails are generated, cross-check against FDs shared by business
+	◦	Verify with Anthony, Katie, or Dave
+	◦	Key check: dates populating correctly per expectations
+Next Steps
+	•	Get POCs from Rohit for HPX, BNE, SFMC, and CS teams Send generated Day 30 files to each POC and follow up on what they need.
+	•	Connect with Ishwara for missing table details and KT session gaps Blocks journey tables were not covered in KT; Ishwara may have the relevant sheets.
+	•	Coordinate with Shangi on outstanding table requirements Will share tables as soon as ready to unblock ETL run prep.
+	•	Cross-check generated letters and emails against FDs Verify date population with Anthony, Katie, or Dave before sign-off.
+
+
+
+
+
 Email and letter validation steps
 Meeting Context
 	•	Walkthrough session on HPE extract validation and comms generation process
