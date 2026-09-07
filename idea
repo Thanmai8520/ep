@@ -1,3 +1,29 @@
+Architecture Decision: AWS Migration
+•	Original plan was MongoDB; now moving to AWS with DynamoDB
+•	EPS cannot connect directly to DynamoDB
+•	Must go through an API gateway layer inside AWS
+•	New architecture:
+1.	UI calls EPS
+2.	EPS calls AWS API (new layer)
+3.	AWS API reads/maps data from DynamoDB
+•	EPS becomes a pass-through middleware; no filtering or mapping logic inside EPS
+Code Cleanup and Branch Strategy
+•	Existing Java/Spring Boot code (converted from FastAPI by Claude) should not be deleted
+•	Will be reused for the AWS backend layer
+•	Create a separate branch to remove redundant logic from EPS
+•	Interface/facade structure flagged as unnecessary; confirmed it mirrors existing MCA repo structure
+Next Steps
+•	Focus on two endpoints: /cases and /cases/{caseId} (plus one for deterministic)
+•	Work on /cases first: simple API-to-API call hitting the existing FastAPI backend
+•	Clean up code in a separate branch; reconvene in ~30 minutes to review
+•	Implement /cases endpoint as API-to-API call (Thanmai)
+Hit the existing FastAPI backend; keep logic minimal, no mapping inside EPS.
+•	Create a separate branch and remove redundant EPS logic there (Thanmai)
+Preserve the Claude-generated code in main; it will be reused for the AWS backend.
+
+
+
+
 Contact updates for UAT team
 UAT and E2E Support
 	•	One speaker supporting UAT team with data queries and E2E flow explanations
