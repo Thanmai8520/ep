@@ -1,3 +1,34 @@
+Product validation plan
+Deepesh’s Team Product Evaluation
+	•	Team has built and released a product in production; goal is to reuse it rather than build from scratch
+	◦	Tried and tested solution already in production with ~30 people
+	•	Key question: how configurable is the product for external clients
+	◦	Risk: may be tightly coupled to their own client, leaving no room for external configuration
+	◦	Need to validate whether it meets our criteria before proceeding
+AWS Account Access and Publishing
+	•	Plan: publish the product into our AWS account, then provision, then test feature delivery
+	•	Access issue blocking progress
+	◦	Needs manager (Priyanka) approval; not yet approved
+	◦	Target: get approval by tomorrow
+	•	AD group membership also needs to be confirmed for eligibility/access
+Integration Testing Approach
+	•	Spoke briefly with a team member about their CIT (Component Integration Testing) process
+	◦	Doing integration testing locally, not in a shared environment
+	◦	Last EPS deployment was in staging; current changes are being done locally
+	•	Need to understand how they mock endpoints locally vs. stable real endpoints
+	◦	Sit with her in more detail to go through the karate testing setup
+Tomorrow’s Plan
+	•	Come into office by 9 AM (meeting rooms are free early)
+	•	Finalize Java models with Vineet
+	•	Book a meeting room to discuss and complete remaining items
+	•	Saurav available after 10:30 AM
+Next Steps
+	•	Connect with Deepesh’s team to assess product configurability Understand if the product can be configured for our client before committing to reuse.
+	•	Get AWS account access approved (Priyanka) Approval pending; target by tomorrow so publishing and provisioning can proceed.
+	•	Sit with the team member to review karate/integration testing setup in detail Understand how local integration testing is done and how endpoints are mocked.
+
+
+
 API deployment and testing plan
 API Development Approach
 	•	Building GET endpoints for fetching entity details
