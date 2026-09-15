@@ -1,3 +1,53 @@
+API deployment and testing plan
+API Development Approach
+	•	Building GET endpoints for fetching entity details
+	◦	Example: GET endpoint to retrieve customer details from a financial institution
+	•	Flow: code the GET part, then handle response/change logic
+Integration and Testing
+	•	Competitive integration testing to follow coding
+	•	Post-deployment testing also planned
+Deployment Clarification
+	•	Deployment is already done; not waiting on it
+	•	Build and deploy first, then test (not the other way around)
+Next Steps
+	•	Discussion pending on remaining items
+	•	Follow-up call to be scheduled as needed
+
+
+Integration testing plan
+EPS Application Setup
+	•	Creating a “bear” (wrapper/layer) on top of EPS with request/response beans
+	•	No business logic in this layer: just calls and responses
+	•	Goal: enable local testing with mock APIs before full integration
+Local Testing Approach
+	•	Need to figure out how to test EPS application locally against a real or mock backend
+	•	No service mesh API available yet
+	•	Options discussed:
+	◦	Use a mock API (e.g. a Python application) as a local backend
+	◦	Connect EPS to a mock server to invoke APIs and validate responses
+	•	Action: check with Anshika and Riya, who recently worked on this, to understand the local setup
+Integration Testing
+	•	Current EPS repo (Virat’s) has no integration tests set up
+	•	Feature files and test setup need to be figured out
+	•	Distinction clarified: component testing (CIT) vs. integration testing
+	◦	Integration testing = deploying to a DSit/test environment
+	◦	Local integration testing needed since no SIC/IT environment exists right now
+Sprint and Task Completion
+	•	Deadline: tomorrow is the last date for this sprint
+	•	Speaker B is at ~50% due to Shubhangi being on another urgent task
+	•	Clear directive: must reach 100%, not just “try”
+	◦	If blocked by external teams by 3 PM today, escalate to Sagar
+	◦	If unresolved, flag that this ticket cannot be carried into next sprint
+	◦	Next sprint: should be 100% capacity, pick up other tasks if this one is blocked
+Next Steps
+	•	Investigate local testing and integration test setup (Thanmai) Find out how local mock testing works and how integration tests are written for the EPS repo; report back today.
+	•	Escalate to Sagar if blocked by 3 PM today If external team info is still missing by 3 PM, inform Sagar that the ticket cannot be completed this sprint.
+	•	Complete assigned task by end of today (Thanmai) Sprint closes tomorrow; 100% completion required, not a “try.”
+
+
+
+
+
 Architecture Decision: AWS Migration
 •	Original plan was MongoDB; now moving to AWS with DynamoDB
 •	EPS cannot connect directly to DynamoDB
