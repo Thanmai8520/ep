@@ -1,3 +1,48 @@
+Contract testing overview
+Contract Testing Concepts
+	•	Contract testing defines a fixed API schema (field names, types, structure) so consumers know exactly what to expect
+	◦	Not just a JSON sample: specifies whether fields are strings, numbers, booleans, etc.
+	◦	Acts as a formal document between provider and consumer
+	•	If the provider changes a field type (e.g. string to number), they must notify consumers and update the contract
+	•	Component tests vs. contract tests clarified: contract sits at the controller/interface boundary
+API Response Structure Redesign
+	•	CaseDetailsResponse structure being refined:
+	◦	Remove redundant fields: mapper, helper, handler not required from EPS side
+	◦	CaseSummaryResponse to be kept separate, not extended from KYCStateDocument
+	◦	CaseMetadata to be a separate object, not nested inside the response
+	•	PaginatedResponse will wrap CaseSummaryResponse for the list view
+	•	Response should pass through backend data as-is (no mapping logic in EPS)
+	◦	EPS job: ensure backend response passes through unchanged to the frontend
+UI and Filtering Logic
+	•	UI responsibilities:
+	◦	Display list of cases with filtering and search
+	◦	Show case cards with company info, overall status, process type, etc.
+	◦	Side panel with attributes changing based on which case/check is clicked
+	•	Filtering logic sits in EPS, not in the UI
+	◦	UI just renders; EPS handles the filter request structure
+	•	Split API by page/section (company info page vs. ownership info page) to avoid over-fetching
+Execution States and Case Data Model
+	•	One case can have multiple executions (e.g. retries due to data/network/technical issues)
+	◦	Each execution stored separately in the table (execution 1, execution 2, etc.)
+	◦	UI should only surface the latest execution per case
+	•	Filtering logic must splice data by unique caseId + customerId combination and pick the latest by lastUpdated / lastModified
+	•	Execution status should be visible to technical reviewers (Vishita, Sagar) to check retry history
+Development Plan and Next Steps
+	•	Priority: build backend first to establish the contract, then align UI to it
+	◦	Once basic backend is running, UI and backend can develop in parallel
+	•	Claude to be used for writing unit/component tests once core code is cleaned up
+	◦	Focus on refining main code; delegate test generation to Claude
+	•	Today’s targets: close off both APIs (Thanmai’s and one other) with Claude’s help
+	◦	Sagar to review and validate once done
+	•	Thanmai to clean up EPS branch, confirm no new changes needed, then push
+Next Steps
+	•	Refine EPS controller and response structure (Thanmai) Remove unused fields, separate CaseMetadata, finalize CaseSummaryResponse shape before handing to Claude for tests.
+	•	Use Claude to generate unit and component tests (Thanmai) Once core code is clean, delegate test writing to Claude rather than writing manually.
+	•	Think through filtering logic implementation (Thanmai) Design the request body and backend logic for splicing executions by caseId + customerId, picking latest execution only.
+
+
+
+
 Product validation plan
 Deepesh’s Team Product Evaluation
 	•	Team has built and released a product in production; goal is to reuse it rather than build from scratch
