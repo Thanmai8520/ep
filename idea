@@ -1,3 +1,39 @@
+
+Client onboarding issues and fixes
+Token Fetcher: Two Blockers Identified
+	•	No direct publish path into the team’s account from the external vendor
+	•	TR client IDs are different and hardcoded in the vendor’s logic
+	◦	Even with access granted, the vendor’s code won’t work as-is
+	◦	Code must be modified to use the correct client ID for this application
+Repo Setup and Code Migration Plan
+	•	Will not fork the vendor’s repo; copying code into a new internal repo instead
+	•	New repo name: BBTR-Token-Fetcher (under the BBCD group)
+	◦	Business Banking level scope, can rename or delete if needed
+	◦	Thanmai already has access to the BBCD group
+	•	Component goal: fetch token for one TR client, store result in a secret
+	◦	Multi-client support (multiple TR client IDs) considered but deferred
+	◦	Onboarding team may reuse the same component later
+Today’s Tasks
+	•	Repo will be created shortly; Thanmai to:
+	◦	Copy code from the vendor’s token generator into the new repo
+	◦	Include the product template metadata YAML file (consolidate into one location)
+	◦	Make an initial commit and share the link back
+	•	Second half of the day: sit together to define structure and kick off properly
+	◦	Structure must be consistent if this is to be published as a marketable product
+	◦	Reference the parameterization approach used in the existing application; remove unnecessary externalized config
+Sprint Planning Overhead
+	•	Team squeezed by two concurrent ceremonies: Sprint 3 backlog planning (CD automation) and space backlog refinement
+	•	Priyanka’s session consuming 30+ minutes with limited relevance to this workstream
+	•	Plan to raise the scheduling conflict with Sagar in office tomorrow
+	◦	Will attend if required but flagged as a time waste
+	◦	Hard stop at 5:36 PM regardless
+Next Steps
+	•	Copy vendor token generator code and YAML into new repo, then commit (Thanmai) Repo will be created under BBCD group as BBTR-Token-Fetcher; consolidate all files in one location.
+	•	Raise Sprint planning scheduling conflict with Sagar Two overlapping ceremonies are consuming 2+ hours daily with low relevance to this workstream.
+
+
+
+
 Contract testing overview
 Contract Testing Concepts
 	•	Contract testing defines a fixed API schema (field names, types, structure) so consumers know exactly what to expect
