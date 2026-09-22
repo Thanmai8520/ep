@@ -1,4 +1,47 @@
 
+Repo structure update meeting
+Repo Structure: Switching to Jumpstart Format
+	•	Existing repo used a simpler structure from pkyc; now required to follow Jumpstart format
+	•	Jumpstart structure is being enforced by the team, not optional
+	•	Project name: bb-pr-token-fetcher (hyphens), bb_pr_token_fetcher (underscores for Python package)
+File and Folder Restructuring
+	•	Copy pyproject.toml and sonar-project.properties from Jumpstart template
+	•	src folder: keep package folder (bb_pr_token_fetcher) inside, move tests outside of src
+	•	Files to remove or rename:
+	◦	config, logger, main not needed
+	◦	secret_saver to be renamed: lambda fetches secrets, not saves them
+	◦	Lambda handler file to replace main
+	•	Logging framework: skip the default one, use internal logging framework instead
+	•	No existing test cases in the component; need to write from scratch (estimated ~30 min)
+IAM Role and CFT Permissions
+	•	Lambda needs an IAM role; list all required AWS services and permissions
+	•	Known permissions needed:
+	◦	Invoke Lambda (for CSM lambda call)
+	◦	EventBridge permission to trigger this lambda (add to CFT)
+	◦	Access to API secrets (fetch TR token and save it)
+	•	Add IAM role details to the shared sheet
+Token Fetcher: Config and SSM Parameters
+	•	TR client ID currently hardcoded or pulled from env variable via role name; needs to change
+	•	Proposed approach: make client details a parameter, not an env variable
+	◦	Env variables require code/CFT changes on every update
+	◦	Config-driven approach (JSON file or SSM) allows redeployment without code changes
+	•	SSM Parameters (AWS Systems Manager) as preferred option:
+	◦	Store client config as plain text or JSON in SSM
+	◦	Lambda fetches config from SSM at runtime
+	◦	Supports multiple clients in future without code changes
+	•	Thanmai to explore SSM parameters today and understand how they work
+Next Steps
+	•	Write test cases for the token fetcher lambda (today)
+	•	Explore AWS SSM parameters: what they are, how to use them in the config
+	•	Come in early tomorrow to discuss before meetings start
+	•	Tomorrow: finalize deployment plan, confirm which client to use, get details from Sumanta
+Action Items
+	•	Write test cases for the token fetcher lambda (Thanmai) No existing tests in the component; estimated ~30 minutes.
+	•	List all AWS services and permissions needed for the lambda IAM role (Thanmai) Include invoke Lambda, EventBridge trigger, and secrets access; add to the shared sheet.
+	•	Explore AWS SSM Parameters and integrate into config (Thanmai) Understand how SSM works and plan how to replace env variables with SSM-driven client config.
+
+
+
 Client onboarding issues and fixes
 Token Fetcher: Two Blockers Identified
 	•	No direct publish path into the team’s account from the external vendor
