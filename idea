@@ -1,4 +1,27 @@
+Access and token management fix
+Access and Token Issue
+	•	Sumanta hasn’t responded; will be pinged again via group chat mention
+	•	Suspected root cause: Sumanta may not have the CSM token needed
+	•	CSM-related part can be tested later once password access is confirmed
+Credentials and Permissions
+	•	Same credentials used for Finance access should be used for token generation
+	•	Permissions need to be granted to fetch data from the relevant source
+	•	Goal: at minimum, confirm password fetch is working as a baseline
+Whitelisting and Border Control
+	•	Whitelisting at border control level under discussion
+	•	Without it, token fetch from the tea line won’t work
+	•	Vinit is working on something related to border control IP listing
+Next Steps
+	•	Ping Sumanta again via group chat mention No response received yet; need to unblock token/CSM access.
+	•	Test password fetch using Finance access credentials Confirm at minimum that password retrieval works before tackling CSM part.
+	•	Coordinate with Jatin on whitelisting at border control Required to enable token fetch flow end to end.
 
+
+
+
+
+m
+m
 Repo structure update meeting
 Repo Structure: Switching to Jumpstart Format
 	•	Existing repo used a simpler structure from pkyc; now required to follow Jumpstart format
