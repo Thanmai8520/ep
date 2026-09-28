@@ -1,3 +1,45 @@
+CSM role mapping update
+CSM Role Mapping Blocker
+	•	New Lambda role needs to be mapped in CSM, but the team doesn’t own that CSM instance
+	◦	CSM is owned by a different account/instance (Jifiti), so it’s treated as a completely separate instance
+	◦	Without access to that CSM, the role mapping cannot be completed
+	•	Jatin is working on getting token/Lambda access from the boarding team
+	◦	Boarding team has raised a request and also has CSM access
+	◦	If access is granted by tomorrow, the team can proceed
+Fallback Options and Constraints
+	•	Boarding team doesn’t own the CSM either, so they can’t complete the mapping independently
+	•	SAS option was raised but uncertain: don’t want to change existing setup
+	•	T-client creation may be a workaround if IAM role can be recreated
+	◦	Still dependent on many factors; outcome unclear
+Escalation and Communication
+	•	Suggestion to post a comment in the ticket itself explaining:
+	◦	What the blocker is
+	◦	What mitigation options are being tried
+	◦	Current state: waiting on CSM access or a usable boarding team instance
+	•	Sagar and Nisha to be looped in via group for their input on the situation
+Sprint Planning and Bandwidth
+	•	Next sprint starts around the 1st/2nd; sprint planning on Friday
+	•	One participant has very limited bandwidth next sprint (taking 5-6 days off)
+	◦	Available roughly up to the 13th, then out
+	◦	Only ~2 working days available in the sprint
+	•	Ragini to be updated on availability; sprint planning already done
+Next Sprint Tasks and Documentation
+	•	Primary task for next sprint: create the T-client (Lambda client)
+	◦	Blocked on testing the existing setup until CSM access is resolved
+	◦	Use available bandwidth to implement the retry logic instead, since testing is blocked
+	•	Documentation is critical before leaving:
+	◦	What was tested, what was achieved, what was not achieved this sprint
+	◦	Current errors and reasons (add to comments/ticket)
+	◦	Note that boarding team instance is also in a provisioning state and cannot be used
+Next Steps
+	•	Document sprint progress, blockers, and errors in the ticket Cover what was tested, what was achieved, current errors, and why CSM access is blocked before leaving.
+	•	Implement retry logic in the next sprint Testing is blocked on CSM access; use available bandwidth for retry logic implementation instead.
+	•	Follow up with Jatin on CSM/token access from boarding team Access expected by tomorrow; if granted, proceed with role mapping and T-client creation.
+
+
+
+
+
 Access and token management fix
 Access and Token Issue
 	•	Sumanta hasn’t responded; will be pinged again via group chat mention
