@@ -1,3 +1,21 @@
+API whitelisting verification
+API Connectivity Check
+	•	Verifying connectivity between an API and a specific instance
+	•	Concern: the API may be pointing to multiple instances, not just the target one
+	•	If not correctly directed, the API cannot be consumed
+Whitelisting Verification
+	•	Need to confirm whether the API is whitelisted for the target instance
+	•	Endpoint in question is for graph QA consumption
+	•	Key question: can the API currently execute requests on this endpoint?
+Next Steps
+	•	Check whether the API has whitelisting enabled for this instance
+	•	If not whitelisted, escalate to get it enabled
+Action Items
+	•	Verify API whitelisting for the target instance Confirm the API is directed to the correct instance and whitelisted for the graph QA endpoint; escalate if not.
+
+
+
+
 CSM role mapping update
 CSM Role Mapping Blocker
 	•	New Lambda role needs to be mapped in CSM, but the team doesn’t own that CSM instance
