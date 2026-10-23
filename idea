@@ -1,3 +1,39 @@
+Summary: API Header, Salesforce Event & Queue Configuration
+
+1. API Header and Metadata
+
+* Remove the correlation ID from metadata and move it to the API header.
+* Store static strings in string constants.
+* Make retryCount optional in metadata.
+* Implement fallback logic if the correlation ID is missing from the header, and send an appropriate message.
+
+2. Salesforce Event — Java
+
+* Update the Salesforce event implementation.
+* Validate all 6 fields and implement the required validation logic.
+* Validate the following IDs:
+    * Customer ID: 10-digit numeric value.
+    * Salesforce ID: Alphanumeric value.
+
+3. Queue URL Configuration
+
+* Configure the Queue URL using the following details:
+    * Queue name
+    * AWS region
+    * AWS account details (as applicable)
+* Read or construct the required configuration from JSON, as applicable.
+
+4. API Gateway Integration
+
+* Send the message to API Gateway.
+* Ensure the message is correctly constructed and validated before sending.
+
+Overall Objective
+
+Implement API header and metadata changes, validate Salesforce event fields, handle missing correlation IDs, configure the queue URL, and send the message to API Gateway.
+
+
+
 API gateway implementation plan
 Architecture: API Gateway vs. TIE Gateway
 	•	Decision pending on which gateway to use for the CDD case processing queue
