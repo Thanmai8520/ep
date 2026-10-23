@@ -1,3 +1,29 @@
+API gateway implementation plan
+Architecture: API Gateway vs. TIE Gateway
+	•	Decision pending on which gateway to use for the CDD case processing queue
+	◦	API Gateway: handles auth via Lambda authorizer
+	◦	TIE (TY) Gateway: auth already integrated with TR token, no Lambda authorizer needed
+	◦	Confirmation needed from Manoj (architect) before finalizing
+Queue Processing Flow
+	•	Bridge API calls the endpoint (API/SQS/Publish)
+	•	Request routes through chosen gateway to CDD case processing queue
+	•	Message pushed to queue, processed, and stored in database
+	•	TY Gateway forwards request directly; TR token passed in header automatically if TY is used
+TR Token Usage Clarification
+	•	Unclear whether TR token is needed for external API calls (Experian, Salesforce) from Lambda
+	•	Mishruth may be working on this; need to confirm
+	•	If TY Gateway is used, TR token is inbuilt and no separate token handling required
+	•	Will follow up with Vishud (P out of office) on Thursday or Tuesday
+Next Steps
+	•	Build sample API Gateway endpoint (API/SQS/Publish) Implement and demo by Wednesday; test via Postman or Bruno to verify messages reach the queue.
+	•	Confirm gateway choice with Manoj Architect sign-off needed before finalizing API Gateway vs. TIE Gateway implementation.
+	•	Sync with Vishud on TR token usage Clarify whether TR token is required for Experian/Salesforce Lambda calls; connect Thursday or Tuesday.
+
+
+
+
+
+
 API integration and error handling
 API Architecture and Flow
 	•	Bridge X API sits between Salesforce and AWS, publishing case status change events to SQS
