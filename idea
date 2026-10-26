@@ -1,3 +1,50 @@
+Repo migration and OS setup
+Branch Merge and Repo Migration
+	•	Merge current work into the develop branch; migration to new space follows after
+	•	Three-repo structure planned per API going forward:
+	◦	Code repo: API source code
+	◦	Specification repo: OpenAPI (OAS) specs
+	◦	Configuration repo: application properties per environment
+	•	Current BBC space repo is the code repo; will migrate to new space post-merge
+	•	OAS code must be moved out of the code repo into the specification repo before raising the MR
+SQS and IAM Roles
+	•	SQS MR to be raised now
+	•	Processing step will fail due to IAM role issue
+	•	Check AWS account to confirm whether roles were removed or updated
+	•	If roles are missing, check with Suresh Adling; he was responsible for IAM roles and API gateway infra
+	•	Noted: too many people touching infra causes issues; one owner preferred
+OAS Code Cleanup
+	•	OAS folder exists in current branch; needs to be verified and moved to the new specification repo
+	•	Compare OAS code between branches to confirm which is latest; remove the older one
+	•	Ensure the develop-bound branch does NOT contain the OAS folder before merging
+	•	Create an OAS MR in the new space directly
+	•	Target: complete OAS work today
+LLD Documentation
+	•	LLD document needs to align with existing API LLD structure in Confluence
+	•	Existing structure is complex but should be followed as closely as possible
+	•	Offer to create the skeleton; Thanmai fills in diagrams and content
+	•	Plan: finish OAS first, then tackle LLD; aim to close LLD today as well
+	•	All Jira tickets to be closed by today; review blockers together in second half
+Next Sprint Preparation
+	•	Two items to start analyzing for the upcoming sprint:
+	1	API registration on Bank Portal: depends on ITSI; connect with Sorrow to document the onboarding process
+	2	Harness pipeline onboarding: Jenkins is being deprecated; reach out to Sourav Guda to understand:
+	▪	Harness readiness for API deployment
+	▪	Prerequisites and onboarding steps
+	▪	Whether deployment space is shared or domain-owned
+	•	Start with a chat before booking a formal meeting; include Sagar in the calendar invite
+	•	Goal: run current sprint work in parallel with analysis for next 2-3 sprints
+Next Steps
+	•	Merge branch into develop (without OAS folder) Verify OAS code matches latest branch, move it to the specification repo, then raise the code MR.
+	•	Check IAM roles in AWS and follow up with Suresh Adling if missing SQS processing step is currently failing due to missing or changed IAM roles.
+	•	Create OAS MR in the new specification repo space Target completion today; review by Speaker A and Sagar.
+	•	Align LLD document with existing Confluence API LLD structure Skeleton can be created as a starting point; aim to close today.
+	•	Reach out to Sourav Guda about Harness pipeline onboarding Start via chat, then book a meeting with Sagar included to discuss prerequisites and readiness.
+
+
+
+
+
 Summary: API Header, Salesforce Event & Queue Configuration
 
 1. API Header and Metadata
