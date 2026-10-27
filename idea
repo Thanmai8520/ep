@@ -1,3 +1,54 @@
+API response structure review
+API Response Structure Fixes
+	•	Error code and error message fields must be removed from success responses
+	◦	Even if null, these fields should not appear in a success response
+	•	Status code must map to the HTTP response header code
+	◦	403, 400, and other error codes should also reflect in HTTP headers
+	•	HTTP status code convention for this API: use 201, not 200
+	◦	Posting a message to the queue returns a reference (sequence number, message ID), not the full object
+	◦	Returning a reference = 201; returning the full created object = 200
+	◦	Justification to be documented in the LLD
+LLD Structure and Format
+	•	Reference LLD shared as the template to follow
+	•	Pages to create (can start as empty stubs):
+	1	Document control / versioning
+	2	Functional overview (what the API does)
+	3	Network diagram (can leave empty for now)
+	4	API interface (endpoint details: business logic, input, output, downstream)
+	5	HTTP status codes (all success and error responses with codes and descriptions)
+	6	Non-functional requirements (latency, max requests, concurrent executions, response size)
+	•	Currently only one endpoint, so only one API interface sub-page needed
+	•	Splitting into pages now is recommended to avoid a bloated single page later
+HTTP Status Code Documentation
+	•	List all codes used across the API with descriptions:
+	◦	201: creating and returning a reference only
+	◦	200: returning the full response object
+	◦	401: unauthorized
+	◦	403: forbidden
+	◦	500: internal server error (with specific downstream error codes noted separately)
+	•	HTTP response code (e.g. 500) may be generic across errors; internal error codes will differ per scenario
+	•	All defined error scenarios in code must be documented with code and description
+Approach to Clearing Comments
+	•	Do not try to resolve all comments at once
+	•	Start with the easiest comments first (e.g. OpenAPI/spec comments)
+	•	Once spec is finalized, align the code to the spec, then fix remaining issues
+	•	Sagar’s comments: address after spec alignment is complete
+	•	Code review comments can be looked at together; specification review comments to be handled independently
+Screenshots and Next Steps
+	•	Take detailed screenshots of every page and save to a folder as a zip
+	◦	Share the zip whenever someone requests environment/IP details, to avoid repeated fishing
+	•	Hardcoding IPs locally is an option if someone sets up the environment that way
+	•	Offer of help available for cloud-related issues (not spec review comments)
+Next Steps
+	•	Fix OpenAPI spec comments first Start with the easiest spec comments; align code to spec once done, then tackle remaining review comments.
+	•	Update LLD with correct request/response structure and 201 justification Document that 201 is used because only a reference is returned, not the created object.
+	•	Create all LLD stub pages following the reference format Six pages total; can be empty initially, to be filled in progressively.
+	•	Take and save detailed screenshots of all pages into a zip folder Share this zip whenever IP or environment details are requested.
+
+
+
+
+
 Repo migration and OS setup
 Branch Merge and Repo Migration
 	•	Merge current work into the develop branch; migration to new space follows after
