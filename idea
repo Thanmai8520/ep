@@ -1,3 +1,50 @@
+API gateway changes and tasks
+Architecture Change: API Gateway to T Gateway
+	•	API Gateway being removed; all requests will route through T Gateway instead
+	◦	All traffic originates from within Barclays campus, nothing external
+	◦	No need for two gateways when everything is internal
+	◦	API Gateway only needed if requests come from an external/internet-facing AWS account
+	•	T Gateway is cloud-agnostic, unlike AWS API Gateway
+	◦	Can be deployed on Azure, GCP, or any cloud
+	◦	Runs inside a container, no AWS-specific permissions needed
+LLD Review Feedback
+	•	Current LLD has errors: SQS was incorrectly connected directly to CloudWatch Logs
+	•	Icons used don’t accurately represent the components
+	•	BDN handles all ingress; BOM handles all egress
+	◦	All arrows in the diagram should reflect this flow
+	•	Lambda + API Gateway block will be removed from the diagram once confirmed
+	•	Diagram to be updated after full confirmation of the new architecture
+Queue Integration After Gateway Swap
+	•	A new endpoint will be added behind T Gateway to publish messages to the queue
+	•	Payload and structure stay the same; only the endpoint URL changes
+	◦	Previously invoking API Gateway endpoint, now invoking T Gateway endpoint
+	◦	Internal mapping/body extraction logic stays inside the new API
+Assigned Tasks
+Three tasks assigned (via Sagar):
+	1	API registration with bank portal
+	◦	Simple, one-day task; complete within the 3 office days
+	◦	Sit with Saurabh to do it side by side
+	◦	Last done ~1 year ago, process needs refreshing
+	2	GraphQL API: LLD and new repo
+	◦	New repo to be created (name TBD, placeholder given)
+	◦	Start with LLD before any code
+	◦	LLD must be thorough, 12 pages already drafted as a base
+	◦	Sub-page needed: analysis of GraphQL framework choice for FastAPI
+	▪	Strawberry (Python library) is the leading candidate
+	▪	Must document why this was chosen over alternatives
+	3	Case details fetch API
+	◦	When case status changes, automation processes it and pushes result to DB
+	◦	This API accepts a case ID and fetches case details from DB via GraphQL
+	◦	Filtering and listing logic not in scope for now (Salesforce handles that)
+	◦	API sits inside APM service mesh
+Next Steps
+	•	Register new API with bank portal (Thanmai) Complete within the 3 office days; sit with Saurabh side by side.
+	•	Complete LLD for GraphQL API, including framework analysis (Thanmai) Document why Strawberry (or chosen library) was selected over alternatives; close documentation today.
+	•	Update architecture diagram to reflect T Gateway change (Thanmai) Remove Lambda + API Gateway block once full confirmation received.
+
+
+
+
 API response structure review
 API Response Structure Fixes
 	•	Error code and error message fields must be removed from success responses
