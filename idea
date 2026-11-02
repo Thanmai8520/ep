@@ -1,3 +1,25 @@
+API error mapping strategies
+HTTP Error Code Mapping
+	•	Functional failures (e.g. unable to publish to queue) map to technical HTTP errors
+	◦	500 Internal Server Error or 503 Service Unavailable for general technical failures
+	◦	401 Unauthorized when IAM role lacks access to target queue, API Gateway, etc.
+	•	Principle: tie functional requirements to HTTP responses
+	◦	Some mappings are generic/common across APIs
+	◦	Others must be tailored to the specific API’s requirements
+API Registration
+	•	Changes made since Friday’s discussion (functional overview and version history) ready for review
+	•	Registration process may proceed without Speaker A if needed
+	◦	Speaker B already knows the steps: navigate to “Register New API” link
+	◦	Blocked on data: Speaker A to send a page with CDT-related notes containing ITSI information
+	◦	Details and numbers available in the “list of ideas” reference
+Next Steps
+	•	Send CDT/ITSI reference page Speaker B needs this data to proceed with API registration independently if needed.
+	•	Review functional overview and version history updates Changes were made per Friday’s discussion; review when time allows.
+	•	Complete API registration together or hand off If Speaker A can’t complete it today, Speaker B to proceed once ITSI data is received.
+
+
+
+
 API documentation review and updates
 Functional Overview Section
 	•	Opening description too generic: needs to name the exact bridge (Salesforce to CDD Automation Engine within AWS)
