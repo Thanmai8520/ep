@@ -1,3 +1,61 @@
+API documentation review and updates
+Functional Overview Section
+	•	Opening description too generic: needs to name the exact bridge (Salesforce to CDD Automation Engine within AWS)
+	•	Second line should specify the exact Salesforce case status change that triggers the event (e.g. “Processing Required” only, not any status change)
+	•	“Event envelope” term flagged as unclear to non-technical readers: reword to “constructs the event to be sent to the automation engine”
+	•	JSON payload line: rewrite as a separate sentence clarifying the event is published as JSON onto the target AWS SQS queue
+Functional Responsibilities Detail
+	•	Current bullets read as headers only: need supporting detail beneath each
+	•	Key areas needing elaboration:
+	◦	State change: specify exact field-to-field transition, make the trigger value bold/highlighted
+	◦	Request construction: note it follows the service mesh/BAPI standard contract; link to API contract for full detail
+	◦	Target Q name: reframe as a mandatory request parameter passed by Salesforce, not a separate “accepting” step
+	◦	Event structure: mention the fields captured (customer ID, etc.) without going into code-level detail
+	◦	Correlation ID: describe as sent in headers for end-to-end traceability downstream
+	◦	API invocation: clarify the flow: API calls TI Gateway (REST) → TI Gateway calls ECS API → ECS publishes to SQS (not a direct publish)
+	◦	Error mapping: add a brief note on error scenarios; link to the HTTP responses tab
+Flow Diagram Improvements
+	•	Remove “Serialized JSON” and “DA request” boxes, not needed at this level
+	•	Replace generic “API Gateway” label with “TI Gateway”
+	•	Add ECS API as an intermediate component between TI Gateway and SQS
+	•	Rename downstream box to “CDD Automation Orchestrator” (matches HLD terminology)
+	•	Color coding suggested:
+	◦	New API component: green
+	◦	TI Gateway: existing color or distinct shade
+	◦	CDD Orchestrator: orange
+	•	Add TI Gateway logo (screenshot from Google) for visual clarity
+	•	Sequence diagram (already created) to be attached separately under LLD, not embedded in the system diagram
+	◦	Sequence diagram should use exact controller and service class names
+API Interface and Request/Response Structure
+	•	Request headers: flag as provisional, subject to change per BDN header standards; confirm which headers are required
+	•	Request body table columns to standardize:
+	◦	Field name, field description, type (string/number/enum), mandatory/optional, allowed values or pattern, format, example
+	◦	Enum fields (e.g. channel, digital/non-digital): explicitly label as enum type
+	◦	Date fields: note format as string with pattern MMddyy’T’HHmmss.SSS
+	•	Remove “validation failure” from request body section; move to a dedicated Error Scenarios section
+	•	Error Scenarios section: list validation failures, missing fields, missing headers, backend unavailable; reference HTTP error response tab for full structure
+	•	Response body: add field-level table (same column structure as request body); include message ID, sequence number, request ID on success (201 Created)
+	•	Event envelope/backend request body: link to existing event contract documentation rather than duplicating fields inline
+Document Structure and General Feedback
+	•	Version history and document metadata: can be removed or moved to non-functional requirements
+	•	JIRA reference: add via Confluence JIRA macro in the “Reason for Change” section (shows live ticket status)
+	•	In-scope section: trim to API development, configuration, and API contract creation only; out-of-scope section is fine as-is
+	•	Endpoint table: add even for single endpoint; UI will consume this API and it may be extended
+	•	Connection configuration: move to non-functional requirements (latency, timeout, etc.)
+	•	LLD architecture diagram: keep generic and reusable; attach sequence diagram below it since it is endpoint-specific
+	•	Internal error codes: replace Googled codes with codes from the existing BAPI/OS contract; refer to that contract for correct 4xx/5xx mappings
+	•	Next iteration: make the current changes first, then review together after return on 16th
+Next Steps
+	•	Revise functional overview and responsibilities with specific detail Add exact status trigger value, field list, correlation ID traceability note, and TI Gateway to ECS to SQS flow description.
+	•	Update flow diagram with corrected components and color coding Replace API Gateway with TI Gateway, add ECS API box, rename downstream to CDD Automation Orchestrator, attach sequence diagram separately under LLD.
+	•	Standardize request/response body tables with full column set Add type, mandatory/optional, allowed values, format, and example columns; pull correct internal error codes from the BAPI/OS contract.
+	•	Confirm required BDN headers and customer context channel field Check with Suresh or Vishruth; headers are not final and should be flagged as provisional in the doc.
+	•	Review updated document together after 16th Complete current round of changes first; next iteration review scheduled on return from travel.
+
+
+
+
+
 API gateway changes and tasks
 Architecture Change: API Gateway to T Gateway
 	•	API Gateway being removed; all requests will route through T Gateway instead
